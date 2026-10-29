@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mine Twist — free on Google Play</title>
+<meta name="description" content="Minesweeper where every region twists a rule, and no board ever needs a guess. Free on Google Play.">
+<meta property="og:title" content="Mine Twist — no guessing. Ever."><meta property="og:description" content="A cosy no-guess logic puzzle with 8 rule twists. Free on Google Play."><meta property="og:type" content="website"><meta property="og:url" content="https://nomnomgamesorg.github.io/minetwist/"><meta property="og:image" content="https://nomnomgamesorg.github.io/minetwist/og.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="icon.png">
+<meta name="theme-color" content="#3f8f2f">
+<style>
+:root{--ink:#3b1f0e;--cream:#fff7e6;--green:#4cba36;--green-dark:#1f6b1a;--sky:#bfe6ff;--gold:#ffd23f}
+*{box-sizing:border-box}
+html{background:#8fd27a}html,body{margin:0}
+body{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,#ffd9b8 0%,#bfe6ff 38%,#8fd27a 100%);min-height:100vh}
+main{max-width:520px;margin:0 auto;padding:calc(28px + env(safe-area-inset-top,0px)) 18px calc(36px + env(safe-area-inset-bottom,0px));text-align:center}
+.icon{width:132px;height:132px;border-radius:30px;box-shadow:0 10px 26px rgba(59,31,14,.28)}
+h1{font-size:2.6rem;margin:.5rem 0 0;letter-spacing:.01em;color:#fff;-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:0 4px 0 var(--ink)}
+.tag{margin:.4rem 0 1.4rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem}
+.install{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:1.1rem 1rem;border-radius:999px;background:var(--green);color:#fff;font-size:1.55rem;font-weight:800;text-decoration:none;border:4px solid #fff;box-shadow:0 8px 0 var(--green-dark),0 14px 26px rgba(31,107,26,.35);animation:pulse 1.4s ease-in-out infinite}
+.install:active{transform:translateY(5px);box-shadow:0 3px 0 var(--green-dark)}
+.install svg{width:26px;height:26px;fill:#fff}
+@keyframes pulse{50%{transform:scale(1.035)}}
+@media (prefers-reduced-motion:reduce){.install{animation:none}}
+.free{margin:.9rem 0 1.6rem;font-weight:700}
+ul{list-style:none;padding:0;margin:0 0 1.6rem;display:grid;gap:.55rem;text-align:left}
+li{background:var(--cream);border:3px solid var(--ink);border-radius:16px;padding:.7rem .9rem;font-weight:600;line-height:1.35}
+li b{color:#c2410c}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1.6rem}
+.shots img{width:100%;height:auto;border-radius:12px;border:3px solid var(--ink)}
+.small{font-size:.85rem;opacity:.8}
+.small a{color:var(--ink)}
+</style></head><body>
+<main>
+  <img class="icon" src="icon.png" alt="" width="132" height="132">
+  <h1>Mine Twist</h1>
+  <p class="tag">No guessing. Ever.</p>
+  <a class="install" id="install" href="https://play.google.com/store/apps/details?id=com.nomnomgames.minetwist">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Install free
+  </a>
+  <p class="free">Free on Google Play · Android</p>
+  <ul>
+    <li><b>Every board is solvable</b> with pure logic: no 50/50 guesses.</li>
+    <li><b>8 rule twists:</b> lying numbers, knight jumps, mines in pairs and more.</li>
+    <li><b>3 new puzzles every day,</b> plus endless levels and boss fields.</li>
+    <li><b>Clear fields, restore the valley:</b> grass, flowers, then the farm.</li>
+  </ul>
+  <div class="shots">
+    <img src="shot-1.jpg" alt="The level map" loading="lazy" width="360" height="720">
+    <img src="shot-3.jpg" alt="A field in play" loading="lazy" width="360" height="720">
+    <img src="shot-6.jpg" alt="The daily puzzles" loading="lazy" width="360" height="720">
+  </div>
+  <p class="small">A game by <a href="../">NomNom Games</a> · <a href="../privacy/mine-twist.html">Privacy policy</a></p>
+</main>
+<script>
+// One tap to the store: links from a short carry ?s=<source> (yt01, ig03 …), which becomes the
+// install referrer so Play Console can tell which short brought the player.
+(function () {
+  var id = "com.nomnomgames.minetwist";
+  var s = (new URLSearchParams(location.search).get("s") || "site").replace(/[^a-z0-9_-]/gi, "").slice(0, 24);
+  var medium = /^yt/.test(s) ? "youtube" : /^ig/.test(s) ? "instagram" : /^fb/.test(s) ? "facebook" : "web";
+  var referrer = encodeURIComponent("utm_source=" + medium + "&utm_medium=social&utm_campaign=shorts&utm_content=" + s);
+  var web = "https://play.google.com/store/apps/details?id=" + id + "&referrer=" + referrer;
+  var link = document.getElementById("install");
+  link.href = web;
+  // On Android, open the Play Store app straight away; the page stays as the fallback.
+  if (/Android/i.test(navigator.userAgent) && !/[?&]stay\b/.test(location.search)) {
+    location.href = "market://details?id=" + id + "&referrer=" + referrer;
+  }
+})();
+</script>
+</body></html>
